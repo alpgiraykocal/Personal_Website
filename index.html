@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Alp Giray Koçal — Compliance Technology</title>
-<meta name="description" content="Alp Giray Koçal — AML/CFT and sanctions compliance technology. Sanctions screening and compliance self-assessment tools. Connect on LinkedIn.">
-<meta name="author" content="Alp Giray Koçal">
+<title>Alpgiray Koçal — AML/CFT Compliance</title>
+<meta name="description" content="Alpgiray Koçal works in AML/CFT compliance and builds small experiments to learn what new technology can do for the work. Sanctions screening and compliance self-assessment tools. Connect on LinkedIn.">
+<meta name="author" content="Alpgiray Koçal">
 <meta name="color-scheme" content="dark light">
 <meta name="theme-color" content="#0A0A0C" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#FAFAFA" media="(prefers-color-scheme: light)">
@@ -13,12 +13,12 @@
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://alpgiraykocal.com/">
-<meta property="og:title" content="Alp Giray Koçal — Compliance Technology">
-<meta property="og:description" content="AML/CFT and sanctions compliance technology. Sanctions screening and compliance self-assessment tools.">
+<meta property="og:title" content="Alpgiray Koçal — AML/CFT Compliance">
+<meta property="og:description" content="Compliance work, and small experiments built to learn what new technology can do for it.">
 <meta property="og:site_name" content="alpgiraykocal.com">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Alp Giray Koçal — Compliance Technology">
-<meta name="twitter:description" content="AML/CFT and sanctions compliance technology. Sanctions screening and compliance self-assessment tools.">
+<meta name="twitter:title" content="Alpgiray Koçal — AML/CFT Compliance">
+<meta name="twitter:description" content="Compliance work, and small experiments built to learn what new technology can do for it.">
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230A0A0C'/%3E%3Ctext x='32' y='43' font-family='Inter,Helvetica,Arial,sans-serif' font-size='28' font-weight='600' fill='%23FAFAFA' text-anchor='middle'%3EAK%3C/text%3E%3C/svg%3E">
 
@@ -30,16 +30,11 @@
 {
   "@context": "https://schema.org",
   "@type": "Person",
-  "name": "Alp Giray Koçal",
+  "name": "Alpgiray Koçal",
   "url": "https://alpgiraykocal.com/",
-  "jobTitle": "Compliance Technology",
+  "jobTitle": "AML/CFT Compliance",
   "knowsAbout": ["AML/CFT", "Sanctions Screening", "OFAC", "Regulatory Compliance"],
-  "sameAs": [
-    "https://www.linkedin.com/in/alpgiraykocal/",
-    "https://github.com/alpgiraykocal",
-    "https://sanctions.alpgiraykocal.com",
-    "https://checkup.alpgiraykocal.com"
-  ]
+  "sameAs": ["https://www.linkedin.com/in/alpgiraykocal/"]
 }
 </script>
 
@@ -176,22 +171,16 @@ body::before {
 }
 .monogram .who { font-size: .9375rem; color: var(--fg-muted); }
 
-.controls { display: flex; align-items: center; gap: var(--sp-2); }
-
-.icon-btn, .lang-btn {
+.icon-btn {
   display: inline-flex; align-items: center; justify-content: center;
   min-width: 44px; min-height: 44px;
-  padding: 0 var(--sp-3);
   background: transparent; color: var(--fg-muted);
   border: 1px solid var(--border); border-radius: var(--r-sm);
-  font: inherit; font-size: .8125rem; font-weight: 500;
   cursor: pointer;
   transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease),
               background-color var(--dur) var(--ease);
 }
-.icon-btn:hover, .lang-btn:hover {
-  color: var(--fg); border-color: var(--border-strong); background: var(--bg-elev);
-}
+.icon-btn:hover { color: var(--fg); border-color: var(--border-strong); background: var(--bg-elev); }
 .icon-btn svg { width: 18px; height: 18px; stroke-width: 1.75; }
 .icon-btn .i-moon { display: none; }
 :root[data-theme="light"] .icon-btn .i-moon { display: block; }
@@ -229,8 +218,9 @@ h1 {
   font-size: clamp(1rem, 2.2vw, 1.1875rem);
   line-height: 1.65;
   color: var(--fg-muted);
-  margin-bottom: var(--sp-8);
+  margin-bottom: var(--sp-4);
 }
+.lede + .lede { margin-bottom: var(--sp-8); }
 .lede strong { color: var(--fg); font-weight: 500; }
 
 .cta-row { display: flex; flex-wrap: wrap; gap: var(--sp-3); }
@@ -259,7 +249,7 @@ h1 {
 .section-head {
   display: flex; align-items: baseline; justify-content: space-between;
   gap: var(--sp-4);
-  margin-bottom: var(--sp-6);
+  margin-bottom: var(--sp-4);
   padding-bottom: var(--sp-4);
   border-bottom: 1px solid var(--border);
 }
@@ -272,6 +262,12 @@ h1 {
 .section-head .count {
   font-size: .75rem; color: var(--fg-subtle);
   font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+.section-note {
+  max-width: var(--measure);
+  margin-bottom: var(--sp-6);
+  font-size: .875rem;
+  color: var(--fg-subtle);
 }
 
 .cards { display: grid; gap: var(--sp-4); }
@@ -315,7 +311,7 @@ h1 {
   flex: none; width: 20px; height: 20px; color: var(--fg-subtle);
   transition: transform var(--dur) var(--ease), color var(--dur) var(--ease);
 }
-.card:hover .arrow { transform: translate(3px, -3px); color: var(--fg); }
+.card:hover .arrow, .connect:hover .arrow { transform: translate(3px, -3px); color: var(--fg); }
 
 .card p {
   color: var(--fg-muted);
@@ -337,25 +333,32 @@ h1 {
   font-size: .75rem; color: var(--fg-subtle);
 }
 
-/* ---------- links list ---------- */
-.links { display: grid; gap: var(--sp-2); }
-.link-row {
+/* ---------- connect ---------- */
+.connect {
   display: flex; align-items: center; gap: var(--sp-4);
-  min-height: 56px; padding: var(--sp-3) var(--sp-4);
-  border: 1px solid var(--border); border-radius: var(--r-md);
+  padding: var(--sp-6);
+  border: 1px solid var(--border); border-radius: var(--r-lg);
   background: var(--bg-elev);
-  transition: border-color var(--dur) var(--ease), background-color var(--dur) var(--ease);
+  transition: border-color var(--dur) var(--ease), background-color var(--dur) var(--ease),
+              box-shadow var(--dur) var(--ease);
 }
-.link-row:hover { border-color: var(--border-strong); background: var(--bg-hover); }
-.link-row svg.brand { width: 20px; height: 20px; flex: none; color: var(--fg-muted); }
-.link-row:hover svg.brand { color: var(--fg); }
-.link-row .label { font-weight: 500; font-size: .9375rem; }
-.link-row .handle {
-  margin-left: auto;
+.connect:hover { border-color: var(--border-strong); background: var(--bg-hover); box-shadow: var(--shadow); }
+.connect .glyph {
+  display: grid; place-items: center;
+  width: 40px; height: 40px; flex: none;
+  border: 1px solid var(--border); border-radius: 10px;
+  color: var(--accent); background: var(--accent-quiet);
+}
+.connect .glyph svg { width: 20px; height: 20px; }
+.connect .txt { min-width: 0; }
+.connect .txt b { display: block; font-size: 1rem; font-weight: 600; letter-spacing: -.01em; }
+.connect .txt span {
+  display: block;
   font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: .8125rem; color: var(--fg-subtle);
   overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }
+.connect .arrow { margin-left: auto; }
 
 /* ---------- footer ---------- */
 footer {
@@ -376,34 +379,24 @@ footer .made { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menl
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; }
 }
-
-/* ---------- i18n ---------- */
-[data-i18n-tr] { display: none; }
-:root[lang="tr"] [data-i18n-en] { display: none; }
-:root[lang="tr"] [data-i18n-tr] { display: initial; }
 </style>
 </head>
 
 <body>
-<a class="skip-link" href="#main"><span data-i18n-en>Skip to content</span><span data-i18n-tr>İçeriğe geç</span></a>
+<a class="skip-link" href="#main">Skip to content</a>
 
 <div class="shell">
 
   <header class="topbar">
     <span class="monogram">
       <span class="mark" aria-hidden="true">AK</span>
-      <span class="who">Alp Giray Koçal</span>
+      <span class="who">Alpgiray Koçal</span>
     </span>
 
-    <div class="controls">
-      <button class="lang-btn" id="lang" type="button" aria-label="Switch language / Dili değiştir">
-        <span id="lang-label">TR</span>
-      </button>
-      <button class="icon-btn" id="theme" type="button" aria-label="Toggle color theme">
-        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
-        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      </button>
-    </div>
+    <button class="icon-btn" id="theme" type="button" aria-label="Toggle color theme">
+      <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
   </header>
 
   <main id="main">
@@ -411,42 +404,42 @@ footer .made { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menl
     <section class="hero reveal">
       <span class="eyebrow">
         <span class="dot" aria-hidden="true"></span>
-        <span data-i18n-en>Compliance Technology</span>
-        <span data-i18n-tr>Uyum Teknolojisi</span>
+        AML / CFT Compliance
       </span>
 
-      <h1>
-        <span data-i18n-en>Building tools for sanctions&nbsp;&amp; AML compliance.</span>
-        <span data-i18n-tr>Yaptırım ve AML uyumu için araçlar geliştiriyorum.</span>
-      </h1>
+      <h1>Compliance is the work. The tools are how I learn.</h1>
 
       <p class="lede">
-        <span data-i18n-en>I&rsquo;m <strong>Alp Giray Koçal</strong>. I build practical screening and self-assessment tools for compliance teams — the kind that turn regulation into something you can actually run. Everything I ship is live below.</span>
-        <span data-i18n-tr><strong>Alp Giray Koçal</strong>. Uyum ekipleri için pratik tarama ve öz-değerlendirme araçları geliştiriyorum — mevzuatı gerçekten çalıştırılabilir hale getiren türden. Yayında olan işlerim aşağıda.</span>
+        I&rsquo;m <strong>Alpgiray Koçal</strong>. I work in AML/CFT and sanctions compliance.
+        Alongside that, I try out new technology on problems I already know well &mdash; to see
+        what it can genuinely do for the day-to-day work, and where it falls short.
+      </p>
+      <p class="lede">
+        The two experiments below came out of that. They are personal learning projects, not
+        products, and they are live if you want to look around.
       </p>
 
       <div class="cta-row">
         <a class="btn btn-primary" href="https://www.linkedin.com/in/alpgiraykocal/" target="_blank" rel="noopener noreferrer">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zm1.78 13.02H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
-          <span data-i18n-en>Connect on LinkedIn</span>
-          <span data-i18n-tr>LinkedIn&rsquo;de bağlan</span>
+          Connect on LinkedIn
         </a>
-        <a class="btn btn-ghost" href="#projects">
-          <span data-i18n-en>See the projects</span>
-          <span data-i18n-tr>Projelere bak</span>
+        <a class="btn btn-ghost" href="#experiments">
+          See the experiments
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
         </a>
       </div>
     </section>
 
-    <section class="section reveal" id="projects">
+    <section class="section reveal" id="experiments">
       <div class="section-head">
-        <h2>
-          <span data-i18n-en>Projects</span>
-          <span data-i18n-tr>Projeler</span>
-        </h2>
+        <h2>Experiments</h2>
         <span class="count">02</span>
       </div>
+      <p class="section-note">
+        Built to learn, not to sell. Nothing here is a commercial product or a substitute for
+        your own compliance process &mdash; treat anything they surface as a lead to verify.
+      </p>
 
       <div class="cards">
 
@@ -461,8 +454,9 @@ footer .made { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menl
             <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
           </div>
           <p>
-            <span data-i18n-en>Screen names, entities and vessels against OFAC, EU, UN and UK sanctions lists plus US export-control data. Fuzzy multi-script matching, ID and vessel lookups, and 50%-Rule ownership network views. Daily refresh, nothing stored.</span>
-            <span data-i18n-tr>İsim, tüzel kişi ve gemileri OFAC, AB, BM ve Birleşik Krallık yaptırım listeleri ile ABD ihracat kontrol verisine karşı tarar. Çok alfabeli bulanık eşleştirme, kimlik ve gemi sorgusu, %50 Kuralı sahiplik ağı görünümü. Günlük güncelleme, veri saklanmaz.</span>
+            Screens names, entities and vessels against OFAC, EU, UN and UK sanctions lists plus
+            US export-control data. Fuzzy multi-script matching, ID and vessel lookups, and
+            50%-Rule ownership network views. Daily refresh, nothing stored.
           </p>
           <div class="tags">
             <span class="tag">OFAC</span><span class="tag">EU / UN / UK</span>
@@ -482,8 +476,9 @@ footer .made { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menl
             <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
           </div>
           <p>
-            <span data-i18n-en>An AML/CFT self-assessment: a 218-question survey, a risk-based QA sampling plan and action tracking, with a dashboard over the results. No install, no account — data stays in your browser.</span>
-            <span data-i18n-tr>AML/CFT uyum öz-değerlendirmesi: 218 soruluk anket, risk bazlı QA örneklem planı ve aksiyon takibi, sonuçlar için gösterge paneli. Kurulum ve hesap gerektirmez — veriler tarayıcınızda kalır.</span>
+            An AML/CFT self-assessment: a 218-question survey, a risk-based QA sampling plan and
+            action tracking, with a dashboard over the results. No install, no account &mdash;
+            data stays in your browser.
           </p>
           <div class="tags">
             <span class="tag">AML / CFT</span><span class="tag">218 questions</span>
@@ -497,40 +492,25 @@ footer .made { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menl
 
     <section class="section reveal" id="connect">
       <div class="section-head">
-        <h2>
-          <span data-i18n-en>Elsewhere</span>
-          <span data-i18n-tr>Diğer bağlantılar</span>
-        </h2>
+        <h2>Get in touch</h2>
       </div>
 
-      <div class="links">
-        <a class="link-row" href="https://www.linkedin.com/in/alpgiraykocal/" target="_blank" rel="noopener noreferrer">
-          <svg class="brand" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zm1.78 13.02H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
-          <span class="label">LinkedIn</span>
-          <span class="handle">/in/alpgiraykocal</span>
-        </a>
-
-        <a class="link-row" href="https://github.com/alpgiraykocal" target="_blank" rel="noopener noreferrer">
-          <svg class="brand" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.2c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .3z"/></svg>
-          <span class="label">GitHub</span>
-          <span class="handle">@alpgiraykocal</span>
-        </a>
-
-        <a class="link-row" href="mailto:alpgiraykocal@gmail.com">
-          <svg class="brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
-          <span class="label">
-            <span data-i18n-en>Email</span>
-            <span data-i18n-tr>E-posta</span>
-          </span>
-          <span class="handle">alpgiraykocal@gmail.com</span>
-        </a>
-      </div>
+      <a class="connect" href="https://www.linkedin.com/in/alpgiraykocal/" target="_blank" rel="noopener noreferrer">
+        <span class="glyph" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zm1.78 13.02H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+        </span>
+        <span class="txt">
+          <b>LinkedIn</b>
+          <span>/in/alpgiraykocal</span>
+        </span>
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
+      </a>
     </section>
 
   </main>
 
   <footer>
-    <span>&copy; <span id="year">2026</span> Alp Giray Koçal</span>
+    <span>&copy; <span id="year">2026</span> Alpgiray Koçal</span>
     <span class="made">alpgiraykocal.com</span>
   </footer>
 
@@ -553,26 +533,6 @@ footer .made { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menl
     var next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
     root.setAttribute('data-theme', next);
     try { localStorage.setItem('theme', next); } catch (e) {}
-  });
-
-  /* language: stored choice > browser > en */
-  var langBtn = document.getElementById('lang');
-  var langLabel = document.getElementById('lang-label');
-
-  function setLang(lang) {
-    root.setAttribute('lang', lang);
-    langLabel.textContent = lang === 'tr' ? 'EN' : 'TR';
-    langBtn.setAttribute('aria-label', lang === 'tr' ? 'Switch to English' : 'Türkçeye geç');
-  }
-
-  var storedLang = null;
-  try { storedLang = localStorage.getItem('lang'); } catch (e) {}
-  setLang(storedLang || ((navigator.language || 'en').toLowerCase().indexOf('tr') === 0 ? 'tr' : 'en'));
-
-  langBtn.addEventListener('click', function () {
-    var next = root.getAttribute('lang') === 'tr' ? 'en' : 'tr';
-    setLang(next);
-    try { localStorage.setItem('lang', next); } catch (e) {}
   });
 
   document.getElementById('year').textContent = new Date().getFullYear();
