@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Alp Giray Koçal — Compliance Technology</title>
+<meta name="description" content="Alp Giray Koçal — AML/CFT and sanctions compliance technology. Sanctions screening and compliance self-assessment tools. Connect on LinkedIn.">
+<meta name="author" content="Alp Giray Koçal">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0A0A0C" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#FAFAFA" media="(prefers-color-scheme: light)">
+<link rel="canonical" href="https://alpgiraykocal.com/">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alpgiraykocal.com/">
+<meta property="og:title" content="Alp Giray Koçal — Compliance Technology">
+<meta property="og:description" content="AML/CFT and sanctions compliance technology. Sanctions screening and compliance self-assessment tools.">
+<meta property="og:site_name" content="alpgiraykocal.com">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Alp Giray Koçal — Compliance Technology">
+<meta name="twitter:description" content="AML/CFT and sanctions compliance technology. Sanctions screening and compliance self-assessment tools.">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230A0A0C'/%3E%3Ctext x='32' y='43' font-family='Inter,Helvetica,Arial,sans-serif' font-size='28' font-weight='600' fill='%23FAFAFA' text-anchor='middle'%3EAK%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Alp Giray Koçal",
+  "url": "https://alpgiraykocal.com/",
+  "jobTitle": "Compliance Technology",
+  "knowsAbout": ["AML/CFT", "Sanctions Screening", "OFAC", "Regulatory Compliance"],
+  "sameAs": [
+    "https://www.linkedin.com/in/alpgiraykocal/",
+    "https://github.com/alpgiraykocal",
+    "https://sanctions.alpgiraykocal.com",
+    "https://checkup.alpgiraykocal.com"
+  ]
+}
+</script>
+
+<style>
+/* ---------- tokens ---------- */
+:root {
+  --bg:            #0A0A0C;
+  --bg-elev:       #121216;
+  --bg-hover:      #17171C;
+  --fg:            #FAFAFA;
+  --fg-muted:      #A1A1AA;
+  --fg-subtle:     #71717A;
+  --border:        rgba(255,255,255,.09);
+  --border-strong: rgba(255,255,255,.16);
+  --accent:        #60A5FA;
+  --accent-quiet:  rgba(96,165,250,.12);
+  --success:       #4ADE80;
+  --ring:          #60A5FA;
+  --shadow:        0 1px 2px rgba(0,0,0,.4), 0 12px 32px -12px rgba(0,0,0,.6);
+
+  --sp-1: .25rem; --sp-2: .5rem;  --sp-3: .75rem; --sp-4: 1rem;
+  --sp-6: 1.5rem; --sp-8: 2rem;   --sp-12: 3rem;  --sp-16: 4rem; --sp-24: 6rem;
+  --r-sm: 8px; --r-md: 12px; --r-lg: 16px; --r-pill: 999px;
+  --dur: 220ms;
+  --ease: cubic-bezier(.2,.8,.2,1);
+  --measure: 62ch;
+}
+
+:root[data-theme="light"] {
+  --bg:            #FAFAFA;
+  --bg-elev:       #FFFFFF;
+  --bg-hover:      #FFFFFF;
+  --fg:            #09090B;
+  --fg-muted:      #52525B;
+  --fg-subtle:     #71717A;
+  --border:        #E4E4E7;
+  --border-strong: #D4D4D8;
+  --accent:        #2563EB;
+  --accent-quiet:  rgba(37,99,235,.08);
+  --success:       #15803D;
+  --ring:          #2563EB;
+  --shadow:        0 1px 2px rgba(9,9,11,.05), 0 12px 28px -14px rgba(9,9,11,.18);
+}
+
+/* ---------- reset ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body, h1, h2, h3, p, ul, li, figure { margin: 0; padding: 0; }
+ul { list-style: none; }
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+body {
+  min-height: 100dvh;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  font-feature-settings: "cv02","cv03","cv04","ss01";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease);
+  overflow-x: hidden;
+}
+
+/* ambient glow — decorative only */
+body::before {
+  content: "";
+  position: fixed;
+  inset: -30% 0 auto 0;
+  height: 70vh;
+  background: radial-gradient(60% 60% at 50% 40%, var(--accent-quiet), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  opacity: .9;
+}
+
+:where(a, button, [tabindex]):focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+  border-radius: var(--r-sm);
+}
+
+.skip-link {
+  position: absolute; left: var(--sp-4); top: -100px;
+  z-index: 100;
+  padding: var(--sp-3) var(--sp-4);
+  background: var(--bg-elev); color: var(--fg);
+  border: 1px solid var(--border-strong); border-radius: var(--r-sm);
+  transition: top var(--dur) var(--ease);
+}
+.skip-link:focus { top: var(--sp-4); }
+
+/* ---------- layout ---------- */
+.shell {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 820px;
+  margin-inline: auto;
+  padding-inline: var(--sp-6);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+@media (min-width: 768px) { .shell { padding-inline: var(--sp-8); } }
+
+/* ---------- header ---------- */
+.topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--sp-4);
+  padding-top: max(var(--sp-6), env(safe-area-inset-top));
+  padding-bottom: var(--sp-6);
+}
+.monogram {
+  display: inline-flex; align-items: center; gap: var(--sp-3);
+  font-weight: 600; letter-spacing: -.01em;
+}
+.monogram .mark {
+  display: grid; place-items: center;
+  width: 34px; height: 34px;
+  border: 1px solid var(--border-strong); border-radius: 10px;
+  font-size: 13px; font-weight: 600; letter-spacing: .02em;
+  background: var(--bg-elev);
+}
+.monogram .who { font-size: .9375rem; color: var(--fg-muted); }
+
+.controls { display: flex; align-items: center; gap: var(--sp-2); }
+
+.icon-btn, .lang-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 44px; min-height: 44px;
+  padding: 0 var(--sp-3);
+  background: transparent; color: var(--fg-muted);
+  border: 1px solid var(--border); border-radius: var(--r-sm);
+  font: inherit; font-size: .8125rem; font-weight: 500;
+  cursor: pointer;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease),
+              background-color var(--dur) var(--ease);
+}
+.icon-btn:hover, .lang-btn:hover {
+  color: var(--fg); border-color: var(--border-strong); background: var(--bg-elev);
+}
+.icon-btn svg { width: 18px; height: 18px; stroke-width: 1.75; }
+.icon-btn .i-moon { display: none; }
+:root[data-theme="light"] .icon-btn .i-moon { display: block; }
+:root[data-theme="light"] .icon-btn .i-sun  { display: none; }
+
+/* ---------- hero ---------- */
+.hero { padding: var(--sp-12) 0 var(--sp-16); }
+@media (min-width: 768px) { .hero { padding: var(--sp-16) 0 var(--sp-24); } }
+
+.eyebrow {
+  display: inline-flex; align-items: center; gap: var(--sp-2);
+  margin-bottom: var(--sp-6);
+  padding: var(--sp-1) var(--sp-3) var(--sp-1) var(--sp-2);
+  border: 1px solid var(--border); border-radius: var(--r-pill);
+  background: var(--bg-elev);
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: .75rem; letter-spacing: .04em; text-transform: uppercase;
+  color: var(--fg-muted);
+}
+.dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--success);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--success) 18%, transparent);
+}
+
+h1 {
+  font-size: clamp(2.25rem, 7vw, 3.5rem);
+  line-height: 1.08;
+  letter-spacing: -.035em;
+  font-weight: 600;
+  margin-bottom: var(--sp-6);
+}
+.lede {
+  max-width: var(--measure);
+  font-size: clamp(1rem, 2.2vw, 1.1875rem);
+  line-height: 1.65;
+  color: var(--fg-muted);
+  margin-bottom: var(--sp-8);
+}
+.lede strong { color: var(--fg); font-weight: 500; }
+
+.cta-row { display: flex; flex-wrap: wrap; gap: var(--sp-3); }
+
+.btn {
+  display: inline-flex; align-items: center; gap: var(--sp-2);
+  min-height: 48px; padding: 0 var(--sp-6);
+  border-radius: var(--r-sm);
+  font-size: .9375rem; font-weight: 500; letter-spacing: -.005em;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background-color var(--dur) var(--ease), border-color var(--dur) var(--ease),
+              color var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.btn svg { width: 18px; height: 18px; flex: none; }
+.btn:active { transform: translateY(1px); }
+
+.btn-primary { background: var(--fg); color: var(--bg); }
+.btn-primary:hover { background: color-mix(in srgb, var(--fg) 88%, var(--accent)); }
+
+.btn-ghost { color: var(--fg); border-color: var(--border-strong); background: var(--bg-elev); }
+.btn-ghost:hover { background: var(--bg-hover); border-color: var(--fg-subtle); }
+
+/* ---------- sections ---------- */
+.section { padding-bottom: var(--sp-16); }
+.section-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-6);
+  padding-bottom: var(--sp-4);
+  border-bottom: 1px solid var(--border);
+}
+.section-head h2 {
+  font-size: .8125rem; font-weight: 500;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--fg-subtle);
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+.section-head .count {
+  font-size: .75rem; color: var(--fg-subtle);
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.cards { display: grid; gap: var(--sp-4); }
+
+.card {
+  position: relative;
+  display: block;
+  padding: var(--sp-6);
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  transition: border-color var(--dur) var(--ease), background-color var(--dur) var(--ease),
+              box-shadow var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.card:hover {
+  border-color: var(--border-strong);
+  background: var(--bg-hover);
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+}
+@media (hover: none) { .card:hover { transform: none; } }
+
+.card-top {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: var(--sp-4); margin-bottom: var(--sp-3);
+}
+.card h3 {
+  font-size: 1.125rem; font-weight: 600; letter-spacing: -.015em;
+  display: flex; align-items: center; gap: var(--sp-3);
+}
+.card h3 .glyph {
+  display: grid; place-items: center;
+  width: 36px; height: 36px; flex: none;
+  border: 1px solid var(--border); border-radius: 10px;
+  color: var(--accent);
+  background: var(--accent-quiet);
+}
+.card h3 .glyph svg { width: 18px; height: 18px; stroke-width: 1.75; }
+
+.arrow {
+  flex: none; width: 20px; height: 20px; color: var(--fg-subtle);
+  transition: transform var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.card:hover .arrow { transform: translate(3px, -3px); color: var(--fg); }
+
+.card p {
+  color: var(--fg-muted);
+  font-size: .9375rem;
+  max-width: var(--measure);
+  margin-bottom: var(--sp-4);
+}
+.tags { display: flex; flex-wrap: wrap; gap: var(--sp-2); }
+.tag {
+  padding: 3px var(--sp-3);
+  border: 1px solid var(--border); border-radius: var(--r-pill);
+  font-size: .75rem; color: var(--fg-subtle);
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  white-space: nowrap;
+}
+.host {
+  display: block; margin-top: var(--sp-4);
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: .75rem; color: var(--fg-subtle);
+}
+
+/* ---------- links list ---------- */
+.links { display: grid; gap: var(--sp-2); }
+.link-row {
+  display: flex; align-items: center; gap: var(--sp-4);
+  min-height: 56px; padding: var(--sp-3) var(--sp-4);
+  border: 1px solid var(--border); border-radius: var(--r-md);
+  background: var(--bg-elev);
+  transition: border-color var(--dur) var(--ease), background-color var(--dur) var(--ease);
+}
+.link-row:hover { border-color: var(--border-strong); background: var(--bg-hover); }
+.link-row svg.brand { width: 20px; height: 20px; flex: none; color: var(--fg-muted); }
+.link-row:hover svg.brand { color: var(--fg); }
+.link-row .label { font-weight: 500; font-size: .9375rem; }
+.link-row .handle {
+  margin-left: auto;
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: .8125rem; color: var(--fg-subtle);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+
+/* ---------- footer ---------- */
+footer {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: var(--sp-3);
+  padding: var(--sp-6) 0 var(--sp-12);
+  border-top: 1px solid var(--border);
+  font-size: .8125rem; color: var(--fg-subtle);
+}
+footer .made { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+/* ---------- entrance ---------- */
+.reveal { opacity: 0; transform: translateY(14px); }
+.reveal.in {
+  opacity: 1; transform: none;
+  transition: opacity 500ms var(--ease), transform 500ms var(--ease);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; }
+}
+
+/* ---------- i18n ---------- */
+[data-i18n-tr] { display: none; }
+:root[lang="tr"] [data-i18n-en] { display: none; }
+:root[lang="tr"] [data-i18n-tr] { display: initial; }
+</style>
+</head>
+
+<body>
+<a class="skip-link" href="#main"><span data-i18n-en>Skip to content</span><span data-i18n-tr>İçeriğe geç</span></a>
+
+<div class="shell">
+
+  <header class="topbar">
+    <span class="monogram">
+      <span class="mark" aria-hidden="true">AK</span>
+      <span class="who">Alp Giray Koçal</span>
+    </span>
+
+    <div class="controls">
+      <button class="lang-btn" id="lang" type="button" aria-label="Switch language / Dili değiştir">
+        <span id="lang-label">TR</span>
+      </button>
+      <button class="icon-btn" id="theme" type="button" aria-label="Toggle color theme">
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="hero reveal">
+      <span class="eyebrow">
+        <span class="dot" aria-hidden="true"></span>
+        <span data-i18n-en>Compliance Technology</span>
+        <span data-i18n-tr>Uyum Teknolojisi</span>
+      </span>
+
+      <h1>
+        <span data-i18n-en>Building tools for sanctions&nbsp;&amp; AML compliance.</span>
+        <span data-i18n-tr>Yaptırım ve AML uyumu için araçlar geliştiriyorum.</span>
+      </h1>
+
+      <p class="lede">
+        <span data-i18n-en>I&rsquo;m <strong>Alp Giray Koçal</strong>. I build practical screening and self-assessment tools for compliance teams — the kind that turn regulation into something you can actually run. Everything I ship is live below.</span>
+        <span data-i18n-tr><strong>Alp Giray Koçal</strong>. Uyum ekipleri için pratik tarama ve öz-değerlendirme araçları geliştiriyorum — mevzuatı gerçekten çalıştırılabilir hale getiren türden. Yayında olan işlerim aşağıda.</span>
+      </p>
+
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://www.linkedin.com/in/alpgiraykocal/" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zm1.78 13.02H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+          <span data-i18n-en>Connect on LinkedIn</span>
+          <span data-i18n-tr>LinkedIn&rsquo;de bağlan</span>
+        </a>
+        <a class="btn btn-ghost" href="#projects">
+          <span data-i18n-en>See the projects</span>
+          <span data-i18n-tr>Projelere bak</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <section class="section reveal" id="projects">
+      <div class="section-head">
+        <h2>
+          <span data-i18n-en>Projects</span>
+          <span data-i18n-tr>Projeler</span>
+        </h2>
+        <span class="count">02</span>
+      </div>
+
+      <div class="cards">
+
+        <a class="card" href="https://sanctions.alpgiraykocal.com" target="_blank" rel="noopener noreferrer">
+          <div class="card-top">
+            <h3>
+              <span class="glyph" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
+              </span>
+              Sanctions Search
+            </h3>
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
+          </div>
+          <p>
+            <span data-i18n-en>Screen names, entities and vessels against OFAC, EU, UN and UK sanctions lists plus US export-control data. Fuzzy multi-script matching, ID and vessel lookups, and 50%-Rule ownership network views. Daily refresh, nothing stored.</span>
+            <span data-i18n-tr>İsim, tüzel kişi ve gemileri OFAC, AB, BM ve Birleşik Krallık yaptırım listeleri ile ABD ihracat kontrol verisine karşı tarar. Çok alfabeli bulanık eşleştirme, kimlik ve gemi sorgusu, %50 Kuralı sahiplik ağı görünümü. Günlük güncelleme, veri saklanmaz.</span>
+          </p>
+          <div class="tags">
+            <span class="tag">OFAC</span><span class="tag">EU / UN / UK</span>
+            <span class="tag">Fuzzy matching</span><span class="tag">50% Rule</span>
+          </div>
+          <span class="host">sanctions.alpgiraykocal.com</span>
+        </a>
+
+        <a class="card" href="https://checkup.alpgiraykocal.com" target="_blank" rel="noopener noreferrer">
+          <div class="card-top">
+            <h3>
+              <span class="glyph" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l2 2 4-4"/><path d="M5 4h14v16l-7-3-7 3z"/></svg>
+              </span>
+              Compliance Check-Up
+            </h3>
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
+          </div>
+          <p>
+            <span data-i18n-en>An AML/CFT self-assessment: a 218-question survey, a risk-based QA sampling plan and action tracking, with a dashboard over the results. No install, no account — data stays in your browser.</span>
+            <span data-i18n-tr>AML/CFT uyum öz-değerlendirmesi: 218 soruluk anket, risk bazlı QA örneklem planı ve aksiyon takibi, sonuçlar için gösterge paneli. Kurulum ve hesap gerektirmez — veriler tarayıcınızda kalır.</span>
+          </p>
+          <div class="tags">
+            <span class="tag">AML / CFT</span><span class="tag">218 questions</span>
+            <span class="tag">Risk-based QA</span><span class="tag">TR / EN</span>
+          </div>
+          <span class="host">checkup.alpgiraykocal.com</span>
+        </a>
+
+      </div>
+    </section>
+
+    <section class="section reveal" id="connect">
+      <div class="section-head">
+        <h2>
+          <span data-i18n-en>Elsewhere</span>
+          <span data-i18n-tr>Diğer bağlantılar</span>
+        </h2>
+      </div>
+
+      <div class="links">
+        <a class="link-row" href="https://www.linkedin.com/in/alpgiraykocal/" target="_blank" rel="noopener noreferrer">
+          <svg class="brand" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zm1.78 13.02H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+          <span class="label">LinkedIn</span>
+          <span class="handle">/in/alpgiraykocal</span>
+        </a>
+
+        <a class="link-row" href="https://github.com/alpgiraykocal" target="_blank" rel="noopener noreferrer">
+          <svg class="brand" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.2c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .3z"/></svg>
+          <span class="label">GitHub</span>
+          <span class="handle">@alpgiraykocal</span>
+        </a>
+
+        <a class="link-row" href="mailto:alpgiraykocal@gmail.com">
+          <svg class="brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+          <span class="label">
+            <span data-i18n-en>Email</span>
+            <span data-i18n-tr>E-posta</span>
+          </span>
+          <span class="handle">alpgiraykocal@gmail.com</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <span>&copy; <span id="year">2026</span> Alp Giray Koçal</span>
+    <span class="made">alpgiraykocal.com</span>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  var root = document.documentElement;
+
+  /* theme: stored choice > system > dark */
+  var storedTheme = null;
+  try { storedTheme = localStorage.getItem('theme'); } catch (e) {}
+  if (storedTheme) {
+    root.setAttribute('data-theme', storedTheme);
+  } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+    root.setAttribute('data-theme', 'light');
+  }
+
+  document.getElementById('theme').addEventListener('click', function () {
+    var next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+  });
+
+  /* language: stored choice > browser > en */
+  var langBtn = document.getElementById('lang');
+  var langLabel = document.getElementById('lang-label');
+
+  function setLang(lang) {
+    root.setAttribute('lang', lang);
+    langLabel.textContent = lang === 'tr' ? 'EN' : 'TR';
+    langBtn.setAttribute('aria-label', lang === 'tr' ? 'Switch to English' : 'Türkçeye geç');
+  }
+
+  var storedLang = null;
+  try { storedLang = localStorage.getItem('lang'); } catch (e) {}
+  setLang(storedLang || ((navigator.language || 'en').toLowerCase().indexOf('tr') === 0 ? 'tr' : 'en'));
+
+  langBtn.addEventListener('click', function () {
+    var next = root.getAttribute('lang') === 'tr' ? 'en' : 'tr';
+    setLang(next);
+    try { localStorage.setItem('lang', next); } catch (e) {}
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* staggered entrance */
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var blocks = document.querySelectorAll('.reveal');
+
+  if (reduced || !('IntersectionObserver' in window)) {
+    blocks.forEach(function (el) { el.classList.add('in'); });
+    return;
+  }
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry, i) {
+      if (!entry.isIntersecting) return;
+      var el = entry.target;
+      el.style.transitionDelay = (i * 60) + 'ms';
+      el.classList.add('in');
+      io.unobserve(el);
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: .08 });
+
+  blocks.forEach(function (el) { io.observe(el); });
+})();
+</script>
+</body>
+</html>
