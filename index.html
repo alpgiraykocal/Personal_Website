@@ -11,16 +11,36 @@
 <meta name="theme-color" content="#FAFAFA" media="(prefers-color-scheme: light)">
 <link rel="canonical" href="https://alpgiraykocal.com/">
 
+<!-- Resolve the theme before first paint, so light-mode visitors never see a dark flash.
+     Also marks that JS ran, which is what gates the entrance animation below. -->
+<script>
+(function () {
+  var root = document.documentElement, t;
+  try { t = localStorage.getItem('theme'); } catch (e) {}
+  if (!t) {
+    t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) ? 'light' : 'dark';
+  }
+  root.setAttribute('data-theme', t);
+  root.className += ' js';
+})();
+</script>
+
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://alpgiraykocal.com/">
 <meta property="og:title" content="Alpgiray Koçal — AML/CFT Compliance">
 <meta property="og:description" content="Compliance work, and small experiments built to learn what new technology can do for it.">
 <meta property="og:site_name" content="alpgiraykocal.com">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://alpgiraykocal.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Alpgiray Koçal — Compliance is the work. The tools are how I learn.">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Alpgiray Koçal — AML/CFT Compliance">
 <meta name="twitter:description" content="Compliance work, and small experiments built to learn what new technology can do for it.">
+<meta name="twitter:image" content="https://alpgiraykocal.com/og.png">
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230A0A0C'/%3E%3Ctext x='32' y='43' font-family='Inter,Helvetica,Arial,sans-serif' font-size='28' font-weight='600' fill='%23FAFAFA' text-anchor='middle'%3EAK%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,6 +53,7 @@
   "name": "Alpgiray Koçal",
   "url": "https://alpgiraykocal.com/",
   "jobTitle": "AML/CFT Compliance",
+  "image": "https://alpgiraykocal.com/og.png",
   "knowsAbout": ["AML/CFT", "Sanctions Screening", "OFAC", "Regulatory Compliance"],
   "sameAs": ["https://www.linkedin.com/in/alpgiraykocal/"]
 }
@@ -46,7 +67,7 @@
   --bg-hover:      #17171C;
   --fg:            #FAFAFA;
   --fg-muted:      #A1A1AA;
-  --fg-subtle:     #71717A;
+  --fg-subtle:     #8E8E99;   /* 5.8:1 on --bg-elev; #71717A failed AA for the 12px labels */
   --border:        rgba(255,255,255,.09);
   --border-strong: rgba(255,255,255,.16);
   --accent:        #60A5FA;
@@ -79,6 +100,17 @@
   --shadow:        0 1px 2px rgba(9,9,11,.05), 0 12px 28px -14px rgba(9,9,11,.18);
 }
 
+/* Metric-matched stand-in for Inter, so the swap when the webfont lands
+   doesn't reflow the page (CLS). Overrides taken from Inter's own metrics. */
+@font-face {
+  font-family: "Inter Fallback";
+  src: local("Helvetica Neue"), local("Arial");
+  size-adjust: 107%;
+  ascent-override: 90%;
+  descent-override: 22.43%;
+  line-gap-override: 0%;
+}
+
 /* ---------- reset ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
@@ -101,7 +133,7 @@ body {
   min-height: 100dvh;
   background: var(--bg);
   color: var(--fg);
-  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-family: Inter, "Inter Fallback", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.6;
   font-feature-settings: "cv02","cv03","cv04","ss01";
@@ -123,10 +155,23 @@ body::before {
   opacity: .9;
 }
 
+:where(a, button, [tabindex]) { touch-action: manipulation; }
+
 :where(a, button, [tabindex]):focus-visible {
   outline: 2px solid var(--ring);
   outline-offset: 3px;
   border-radius: var(--r-sm);
+}
+
+::selection { background: var(--accent); color: var(--bg); }
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 .skip-link {
@@ -245,7 +290,7 @@ h1 {
 .btn-ghost:hover { background: var(--bg-hover); border-color: var(--fg-subtle); }
 
 /* ---------- sections ---------- */
-.section { padding-bottom: var(--sp-16); }
+.section { padding-bottom: var(--sp-16); scroll-margin-top: var(--sp-8); }
 .section-head {
   display: flex; align-items: baseline; justify-content: space-between;
   gap: var(--sp-4);
@@ -370,14 +415,16 @@ footer {
 }
 footer .made { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace; }
 
-/* ---------- entrance ---------- */
-.reveal { opacity: 0; transform: translateY(14px); }
-.reveal.in {
+/* ---------- entrance ----------
+   Gated on .js: without scripting the content stays visible instead of
+   being permanently hidden behind an animation that never runs. */
+:root.js .reveal { opacity: 0; transform: translateY(14px); }
+:root.js .reveal.in {
   opacity: 1; transform: none;
   transition: opacity 500ms var(--ease), transform 500ms var(--ease);
 }
 @media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transform: none; }
+  :root.js .reveal { opacity: 1; transform: none; }
 }
 </style>
 </head>
@@ -422,7 +469,7 @@ footer .made { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menl
       <div class="cta-row">
         <a class="btn btn-primary" href="https://www.linkedin.com/in/alpgiraykocal/" target="_blank" rel="noopener noreferrer">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zm1.78 13.02H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
-          Connect on LinkedIn
+          Connect on LinkedIn<span class="sr-only"> (opens in a new tab)</span>
         </a>
         <a class="btn btn-ghost" href="#experiments">
           See the experiments
@@ -443,7 +490,8 @@ footer .made { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menl
 
       <div class="cards">
 
-        <a class="card" href="https://sanctions.alpgiraykocal.com" target="_blank" rel="noopener noreferrer">
+        <a class="card" href="https://sanctions.alpgiraykocal.com" target="_blank" rel="noopener noreferrer"
+           aria-label="Sanctions Search (opens in a new tab)">
           <div class="card-top">
             <h3>
               <span class="glyph" aria-hidden="true">
@@ -465,7 +513,8 @@ footer .made { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menl
           <span class="host">sanctions.alpgiraykocal.com</span>
         </a>
 
-        <a class="card" href="https://checkup.alpgiraykocal.com" target="_blank" rel="noopener noreferrer">
+        <a class="card" href="https://checkup.alpgiraykocal.com" target="_blank" rel="noopener noreferrer"
+           aria-label="Compliance Check-Up (opens in a new tab)">
           <div class="card-top">
             <h3>
               <span class="glyph" aria-hidden="true">
@@ -500,7 +549,7 @@ footer .made { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menl
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zm1.78 13.02H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
         </span>
         <span class="txt">
-          <b>LinkedIn</b>
+          <b>LinkedIn<span class="sr-only"> (opens in a new tab)</span></b>
           <span>/in/alpgiraykocal</span>
         </span>
         <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
@@ -520,15 +569,7 @@ footer .made { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menl
 (function () {
   var root = document.documentElement;
 
-  /* theme: stored choice > system > dark */
-  var storedTheme = null;
-  try { storedTheme = localStorage.getItem('theme'); } catch (e) {}
-  if (storedTheme) {
-    root.setAttribute('data-theme', storedTheme);
-  } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-    root.setAttribute('data-theme', 'light');
-  }
-
+  /* the theme itself is resolved by the inline script in <head>, before first paint */
   document.getElementById('theme').addEventListener('click', function () {
     var next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
     root.setAttribute('data-theme', next);
