@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Alpgiray Koçal — AML/CFT Compliance</title>
-<meta name="description" content="Alpgiray Koçal works in AML/CFT compliance and builds small experiments to learn what new technology can do for the work. Sanctions screening, compliance self-assessment and blockchain analytics tools. Connect on LinkedIn.">
+<meta name="description" content="Alpgiray Koçal works in AML/CFT and sanctions compliance. Three side projects: sanctions screening, an AML/CFT self-assessment, and blockchain graph analysis.">
 <meta name="author" content="Alpgiray Koçal">
 <meta name="color-scheme" content="dark light">
 <meta name="theme-color" content="#0A0A0C" media="(prefers-color-scheme: dark)">
@@ -28,15 +28,15 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://alpgiraykocal.com/">
 <meta property="og:title" content="Alpgiray Koçal — AML/CFT Compliance">
-<meta property="og:description" content="Compliance work, and small experiments built to learn what new technology can do for it.">
+<meta property="og:description" content="AML/CFT and sanctions compliance. Three side projects: screening, self-assessment, and blockchain graph analysis.">
 <meta property="og:site_name" content="alpgiraykocal.com">
 <meta property="og:image" content="https://alpgiraykocal.com/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Alpgiray Koçal — Compliance is the work. The tools are how I learn.">
+<meta property="og:image:alt" content="Alpgiray Koçal — AML/CFT and sanctions compliance.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Alpgiray Koçal — AML/CFT Compliance">
-<meta name="twitter:description" content="Compliance work, and small experiments built to learn what new technology can do for it.">
+<meta name="twitter:description" content="AML/CFT and sanctions compliance. Three side projects: screening, self-assessment, and blockchain graph analysis.">
 <meta name="twitter:image" content="https://alpgiraykocal.com/og.png">
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230A0A0C'/%3E%3Ctext x='32' y='43' font-family='Inter,Helvetica,Arial,sans-serif' font-size='28' font-weight='600' fill='%23FAFAFA' text-anchor='middle'%3EAK%3C/text%3E%3C/svg%3E">
@@ -72,7 +72,6 @@
   --border-strong: rgba(255,255,255,.16);
   --accent:        #60A5FA;
   --accent-quiet:  rgba(96,165,250,.12);
-  --success:       #4ADE80;
   --ring:          #60A5FA;
   --shadow:        0 1px 2px rgba(0,0,0,.4), 0 12px 32px -12px rgba(0,0,0,.6);
 
@@ -98,7 +97,6 @@
   --border-strong: #D4D4D8;
   --accent:        #2563EB;
   --accent-quiet:  rgba(37,99,235,.08);
-  --success:       #15803D;
   --ring:          #2563EB;
   --shadow:        0 1px 2px rgba(9,9,11,.05), 0 12px 28px -14px rgba(9,9,11,.18);
 
@@ -248,23 +246,11 @@ body::after {
 
 /* ---------- header ---------- */
 .topbar {
-  display: flex; align-items: center; justify-content: space-between;
+  display: flex; align-items: center; justify-content: flex-end;
   gap: var(--sp-4);
   padding-top: max(var(--sp-6), env(safe-area-inset-top));
   padding-bottom: var(--sp-6);
 }
-.monogram {
-  display: inline-flex; align-items: center; gap: var(--sp-3);
-  font-weight: 600; letter-spacing: -.01em;
-}
-.monogram .mark {
-  display: grid; place-items: center;
-  width: 34px; height: 34px;
-  border: 1px solid var(--border-strong); border-radius: 10px;
-  font-size: 13px; font-weight: 600; letter-spacing: .02em;
-  background: var(--bg-elev);
-}
-.monogram .who { font-size: .9375rem; color: var(--fg-muted); }
 
 .icon-btn {
   display: inline-flex; align-items: center; justify-content: center;
@@ -285,28 +271,22 @@ body::after {
 .hero { padding: var(--sp-12) 0 var(--sp-16); }
 @media (min-width: 768px) { .hero { padding: var(--sp-16) 0 var(--sp-24); } }
 
-.eyebrow {
-  display: inline-flex; align-items: center; gap: var(--sp-2);
-  margin-bottom: var(--sp-6);
-  padding: var(--sp-1) var(--sp-3) var(--sp-1) var(--sp-2);
-  border: 1px solid var(--border); border-radius: var(--r-pill);
-  background: var(--bg-elev);
-  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: .75rem; letter-spacing: .04em; text-transform: uppercase;
-  color: var(--fg-muted);
-}
-.dot {
-  width: 7px; height: 7px; border-radius: 50%;
-  background: var(--success);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--success) 18%, transparent);
-}
 
 h1 {
-  font-size: clamp(2.25rem, 7vw, 3.5rem);
-  line-height: 1.08;
-  letter-spacing: -.035em;
+  font-size: clamp(2.5rem, 7vw, 3.75rem);
+  line-height: 1.05;
+  letter-spacing: -.04em;
   font-weight: 600;
-  margin-bottom: var(--sp-6);
+  margin-bottom: var(--sp-3);
+}
+
+/* Sits directly under the name, so it reads as an answer to it rather than
+   as a label floating above. */
+.role {
+  font-size: clamp(1.0625rem, 2.4vw, 1.25rem);
+  color: var(--fg-muted);
+  letter-spacing: -.01em;
+  margin-bottom: var(--sp-8);
 }
 .lede {
   max-width: var(--measure);
@@ -352,10 +332,6 @@ h1 {
   font-size: .8125rem; font-weight: 500;
   letter-spacing: .08em; text-transform: uppercase;
   color: var(--fg-subtle);
-  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-}
-.section-head .count {
-  font-size: .75rem; color: var(--fg-subtle);
   font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 .section-note {
@@ -485,11 +461,6 @@ footer .made { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menl
 <div class="shell">
 
   <header class="topbar">
-    <span class="monogram">
-      <span class="mark" aria-hidden="true">AK</span>
-      <span class="who">Alpgiray Koçal</span>
-    </span>
-
     <button class="icon-btn" id="theme" type="button" aria-label="Toggle color theme">
       <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
       <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -499,21 +470,16 @@ footer .made { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menl
   <main id="main">
 
     <section class="hero reveal">
-      <span class="eyebrow">
-        <span class="dot" aria-hidden="true"></span>
-        AML / CFT Compliance
-      </span>
-
-      <h1>Compliance is the work. The tools are how I learn.</h1>
+      <h1>Alpgiray Koçal</h1>
+      <p class="role">AML/CFT and sanctions compliance</p>
 
       <p class="lede">
-        I&rsquo;m <strong>Alpgiray Koçal</strong>. I work in AML/CFT and sanctions compliance.
-        Alongside that, I try out new technology on problems I already know well &mdash; to see
-        what it can genuinely do for the day-to-day work, and where it falls short.
+        The three things below started as a way to find out what the newer tooling is
+        actually good for, so I pointed it at work I already understand: screening a name,
+        assessing a programme, following money across a chain.
       </p>
       <p class="lede">
-        The experiments below came out of that. They are personal learning projects, not
-        products, and they are live if you want to look around.
+        None of them is a product. All three are running, and you are welcome to break them.
       </p>
 
       <div class="cta-row">
@@ -522,7 +488,7 @@ footer .made { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menl
           Connect on LinkedIn<span class="sr-only"> (opens in a new tab)</span>
         </a>
         <a class="btn btn-ghost" href="#experiments">
-          See the experiments
+          Take a look
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
         </a>
       </div>
@@ -531,11 +497,10 @@ footer .made { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menl
     <section class="section reveal" id="experiments">
       <div class="section-head">
         <h2>Experiments</h2>
-        <span class="count">03</span>
       </div>
       <p class="section-note">
-        Three things I built and keep running. None of them replaces your own compliance
-        process &mdash; treat whatever they surface as a lead to verify.
+        Whatever these surface is a lead to verify, never a determination. None of it
+        stands in for your own process.
       </p>
 
       <div class="cards">
@@ -552,13 +517,14 @@ footer .made { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menl
             <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
           </div>
           <p>
-            Screens names, entities and vessels against OFAC, EU, UN and UK sanctions lists plus
-            US export-control data. Fuzzy multi-script matching, ID and vessel lookups, and
-            50%-Rule ownership network views. Daily refresh, nothing stored.
+            Type a name, an IMO number or a passport. It screens against OFAC, EU, UN and UK,
+            plus the US export-control lists, and matches across scripts and transliterations
+            rather than exact strings. Ownership chains get walked out for the 50% Rule.
+            Lists refresh daily; queries are not stored.
           </p>
           <div class="tags">
-            <span class="tag">OFAC</span><span class="tag">EU / UN / UK</span>
-            <span class="tag">Fuzzy matching</span><span class="tag">50% Rule</span>
+            <span class="tag">OFAC &middot; EU &middot; UN &middot; UK</span>
+            <span class="tag">Export control</span><span class="tag">50% Rule</span>
           </div>
           <span class="host">sanctions.alpgiraykocal.com</span>
         </a>
@@ -575,13 +541,13 @@ footer .made { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menl
             <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
           </div>
           <p>
-            An AML/CFT self-assessment: a 218-question survey, a risk-based QA sampling plan and
-            action tracking, with a dashboard over the results. No install, no account &mdash;
-            data stays in your browser.
+            218 questions on an AML/CFT programme, then a risk-based sampling plan for the QA
+            work and somewhere to track the actions that come out of it. Results collect on a
+            dashboard. Nothing to install, no account; the answers stay in the browser.
           </p>
           <div class="tags">
-            <span class="tag">AML / CFT</span><span class="tag">218 questions</span>
-            <span class="tag">Risk-based QA</span><span class="tag">TR / EN</span>
+            <span class="tag">Self-assessment</span><span class="tag">Risk-based QA</span>
+            <span class="tag">TR &middot; EN</span>
           </div>
           <span class="host">checkup.alpgiraykocal.com</span>
         </a>
@@ -598,15 +564,15 @@ footer .made { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menl
             <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
           </div>
           <p>
-            Reads Bitcoin, Ethereum and TRON as a graph: transaction flow, co-spend clustering
-            into entities, and attribution-driven risk. Its investigation workspace tests activity
-            against named laundering typologies, and every finding also states the ordinary
-            explanation that fits it. Live public explorers only &mdash; no keys, no accounts,
+            Bitcoin, Ethereum and TRON read as a graph &mdash; addresses, the entities behind
+            their co-spends, and where the risk in a chain of transfers sits. The investigation
+            view tests activity against named laundering typologies, and every finding carries
+            the innocent reading alongside it. Runs off public explorers. No keys, no accounts,
             no database.
           </p>
           <div class="tags">
-            <span class="tag">BTC / ETH / TRON</span><span class="tag">Typology testing</span>
-            <span class="tag">OFAC</span><span class="tag">TR / EN</span>
+            <span class="tag">BTC &middot; ETH &middot; TRON</span><span class="tag">Typologies</span>
+            <span class="tag">TR &middot; EN</span>
           </div>
           <span class="host">blockchain.alpgiraykocal.com</span>
         </a>
@@ -616,9 +582,8 @@ footer .made { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menl
 
     <section class="section reveal" id="connect">
       <div class="section-head">
-        <h2>Get in touch</h2>
+        <h2>Elsewhere</h2>
       </div>
-
       <a class="connect" href="https://www.linkedin.com/in/alpgiraykocal/" target="_blank" rel="noopener noreferrer">
         <span class="glyph" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zm1.78 13.02H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
