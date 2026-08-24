@@ -21,7 +21,7 @@ Served by GitHub Pages from the `main` branch root.
 ## Design notes
 
 - **Style:** minimalism / Swiss grid, dark-first with a full light theme
-- **Background:** an ambient accent glow with a honeycomb lattice over it, both decorative pseudo-elements. The lattice is an inline SVG tile held in a `--hex` token per theme, faded out down the page, scaled back on phones, and dropped under `prefers-contrast: more` and in print
+- **Background:** an ambient accent glow with a hairline honeycomb lattice over it, both decorative pseudo-elements. The lattice is a stroked, geometrically exact hex tile (circumradius 50, period √3R × 3R) held in a `--hex` token per theme, masked from the same top-centre origin as the glow so it emerges with the light and dissolves outside it. Scaled back on phones, dropped under `prefers-contrast: more` and in print
 - **Type:** Inter for UI text, JetBrains Mono for labels and metadata
 - **Theme:** follows `prefers-color-scheme`, overridable by the toggle, stored in `localStorage`. Resolved by an inline script in `<head>` so there is no flash of the wrong theme before first paint
 - **Language:** English only
