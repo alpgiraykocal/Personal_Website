@@ -22,6 +22,7 @@ Served by GitHub Pages from the `main` branch root.
 
 - **Style:** minimalism / Swiss grid, dark-first with a full light theme
 - **Background:** an ambient accent glow with a hairline honeycomb lattice over it, both decorative pseudo-elements. The lattice is a stroked, geometrically exact hex tile (circumradius 50, period √3R × 3R) held in a `--hex` token per theme, masked from the same top-centre origin as the glow so it emerges with the light and dissolves outside it. Scaled back on phones, dropped under `prefers-contrast: more` and in print
+- **Backdrop parallax:** the pointer stands in for the light — the glow leans toward it, the lattice drifts the opposite way and less far, and scrolling nudges the lattice down. Offsets are a handful of pixels, eased on `requestAnimationFrame` that idles as soon as it settles, driven through CSS custom properties so both layers stay composited. Pointer tracking is limited to `(pointer: fine)`, and the whole thing detaches its listeners under `prefers-reduced-motion`
 - **Type:** Inter for UI text, JetBrains Mono for labels and metadata
 - **Theme:** follows `prefers-color-scheme`, overridable by the toggle, stored in `localStorage`. Resolved by an inline script in `<head>` so there is no flash of the wrong theme before first paint
 - **Language:** English only

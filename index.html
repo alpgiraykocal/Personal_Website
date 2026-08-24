@@ -149,16 +149,19 @@ body {
   overflow-x: hidden;
 }
 
-/* ambient glow — decorative only */
+/* ambient glow — decorative only.
+   Bled past the viewport on both sides so the parallax offset below can
+   never drag an edge into view. */
 body::before {
   content: "";
   position: fixed;
-  inset: -30% 0 auto 0;
+  inset: -30% -80px auto -80px;
   height: 70vh;
   background: radial-gradient(60% 60% at 50% 40%, var(--accent-quiet), transparent 70%);
   pointer-events: none;
   z-index: 0;
   opacity: .9;
+  transform: translate3d(var(--glow-x, 0px), var(--glow-y, 0px), 0);
 }
 
 /* honeycomb — decorative only.
@@ -169,16 +172,21 @@ body::before {
 body::after {
   content: "";
   position: fixed;
-  inset: 0;
+  inset: -80px;
   z-index: 0;
   pointer-events: none;
   background-image: var(--hex);
   background-position: 50% -14%;
   background-size: 104px 180px;
   opacity: var(--hex-opacity);
-  -webkit-mask-image: radial-gradient(115% 78% at 50% 0%, #000 0%, #000 30%, transparent 74%);
-          mask-image: radial-gradient(115% 78% at 50% 0%, #000 0%, #000 30%, transparent 74%);
+  -webkit-mask-image: radial-gradient(115% 78% at 50% 12%, #000 0%, #000 30%, transparent 74%);
+          mask-image: radial-gradient(115% 78% at 50% 12%, #000 0%, #000 30%, transparent 74%);
+  transform: translate3d(var(--hex-x, 0px), var(--hex-y, 0px), 0);
 }
+
+/* Both layers are promoted only while the parallax is actually running. */
+:root.parallax body::before,
+:root.parallax body::after { will-change: transform; }
 
 /* On a phone the cell would span most of the width, so the lattice stops
    reading as a field and starts reading as a few stray lines. Tighten it. */
@@ -665,6 +673,88 @@ footer .made { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menl
   }, { rootMargin: '0px 0px -8% 0px', threshold: .08 });
 
   blocks.forEach(function (el) { io.observe(el); });
+})();
+
+/* Backdrop parallax.
+   The pointer stands in for the light: the glow leans toward it, the lattice
+   drifts the other way and less far, and the gap between the two is what
+   reads as depth. Scrolling nudges the lattice down a little so the backdrop
+   isn't completely inert on a phone. Everything is a few pixels — the page
+   should feel alive, not animated. */
+(function () {
+  var root = document.documentElement;
+  var reduceMQ = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var fineMQ = window.matchMedia('(pointer: fine)');
+
+  var targetX = 0, targetY = 0;   /* -1 .. 1, from the pointer */
+  var curX = 0, curY = 0;         /* eased toward the target */
+  var frame = 0;
+  var scrollQueued = false;
+  var pointerOn = false, scrollOn = false;
+
+  function paint() {
+    var drift = Math.min(window.pageYOffset * 0.03, 26);
+    root.style.setProperty('--glow-x', (curX * 16).toFixed(2) + 'px');
+    root.style.setProperty('--glow-y', (curY * 10 - drift * 0.4).toFixed(2) + 'px');
+    root.style.setProperty('--hex-x', (curX * -7).toFixed(2) + 'px');
+    root.style.setProperty('--hex-y', (curY * -5 + drift).toFixed(2) + 'px');
+  }
+
+  function tick() {
+    curX += (targetX - curX) * 0.06;
+    curY += (targetY - curY) * 0.06;
+    paint();
+    frame = (Math.abs(targetX - curX) > 0.002 || Math.abs(targetY - curY) > 0.002)
+      ? requestAnimationFrame(tick)
+      : 0;
+  }
+
+  function onPointer(e) {
+    targetX = (e.clientX / window.innerWidth) * 2 - 1;
+    targetY = (e.clientY / window.innerHeight) * 2 - 1;
+    if (!frame) frame = requestAnimationFrame(tick);
+  }
+
+  function onScroll() {
+    if (scrollQueued) return;
+    scrollQueued = true;
+    requestAnimationFrame(function () { scrollQueued = false; paint(); });
+  }
+
+  function sync() {
+    var motion = !reduceMQ.matches;
+    var pointer = motion && fineMQ.matches;
+
+    if (pointer !== pointerOn) {
+      pointerOn = pointer;
+      if (pointer) window.addEventListener('pointermove', onPointer, { passive: true });
+      else window.removeEventListener('pointermove', onPointer);
+    }
+    if (motion !== scrollOn) {
+      scrollOn = motion;
+      if (motion) window.addEventListener('scroll', onScroll, { passive: true });
+      else window.removeEventListener('scroll', onScroll);
+    }
+
+    root.classList.toggle('parallax', motion);
+
+    if (motion) {
+      paint();
+    } else {
+      if (frame) { cancelAnimationFrame(frame); frame = 0; }
+      targetX = targetY = curX = curY = 0;
+      ['--glow-x', '--glow-y', '--hex-x', '--hex-y'].forEach(function (v) {
+        root.style.removeProperty(v);
+      });
+    }
+  }
+
+  [reduceMQ, fineMQ].forEach(function (mq) {
+    if (mq.addEventListener) mq.addEventListener('change', sync);
+    else if (mq.addListener) mq.addListener(sync);
+  });
+
+  sync();
 })();
 </script>
 </body>
