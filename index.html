@@ -82,6 +82,9 @@
   --dur: 220ms;
   --ease: cubic-bezier(.2,.8,.2,1);
   --measure: 62ch;
+
+  --hex:         url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='28'%20height='49'%20viewBox='0%200%2028%2049'%3E%3Cpath%20d='M13.99%209.25l13%207.5v15l-13%207.5L1%2031.75v-15l12.99-7.5zM3%2017.9v12.7l10.99%206.34%2011-6.35V17.9l-11-6.34L3%2017.9zM0%2015l12.98-7.5V0h-2v6.35L0%2012.69v2.3zm0%2018.5L12.98%2041v8h-2v-6.85L0%2035.81V33.5zM15%200v7.5L27.99%2015H28v-2.31h-.01L17%206.35V0h-2zm0%2049v-8l12.99-7.5H28v2.31h-.01L17%2042.15V49h-2z'%20fill='%23ffffff'%20fill-rule='evenodd'/%3E%3C/svg%3E");
+  --hex-opacity: .055;
 }
 
 :root[data-theme="light"] {
@@ -98,6 +101,9 @@
   --success:       #15803D;
   --ring:          #2563EB;
   --shadow:        0 1px 2px rgba(9,9,11,.05), 0 12px 28px -14px rgba(9,9,11,.18);
+
+  --hex:         url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='28'%20height='49'%20viewBox='0%200%2028%2049'%3E%3Cpath%20d='M13.99%209.25l13%207.5v15l-13%207.5L1%2031.75v-15l12.99-7.5zM3%2017.9v12.7l10.99%206.34%2011-6.35V17.9l-11-6.34L3%2017.9zM0%2015l12.98-7.5V0h-2v6.35L0%2012.69v2.3zm0%2018.5L12.98%2041v8h-2v-6.85L0%2035.81V33.5zM15%200v7.5L27.99%2015H28v-2.31h-.01L17%206.35V0h-2zm0%2049v-8l12.99-7.5H28v2.31h-.01L17%2042.15V49h-2z'%20fill='%2309090B'%20fill-rule='evenodd'/%3E%3C/svg%3E");
+  --hex-opacity: .05;
 }
 
 /* Metric-matched stand-in for Inter, so the swap when the webfont lands
@@ -153,6 +159,41 @@ body::before {
   pointer-events: none;
   z-index: 0;
   opacity: .9;
+}
+
+/* honeycomb — decorative only.
+   Kept at texture strength, not pattern strength: it should register as
+   surface, never compete with the type. Faded out down the page so the
+   lower half stays quiet, and dropped entirely when the reader has asked
+   for more contrast. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: var(--hex);
+  background-size: 44px 77px;
+  opacity: var(--hex-opacity);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 32%, transparent 82%);
+          mask-image: linear-gradient(to bottom, #000 0%, #000 32%, transparent 82%);
+}
+
+/* On a phone the same tile spans a third of the width, so the lattice reads
+   far heavier than it does on a desktop. Shrink the cell and pull it back. */
+@media (max-width: 767px) {
+  body::after {
+    background-size: 30px 52px;
+    opacity: calc(var(--hex-opacity) * .7);
+  }
+}
+
+@media (prefers-contrast: more) {
+  body::after { display: none; }
+}
+
+@media print {
+  body::before, body::after { display: none; }
 }
 
 :where(a, button, [tabindex]) { touch-action: manipulation; }
@@ -462,7 +503,7 @@ footer .made { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menl
         what it can genuinely do for the day-to-day work, and where it falls short.
       </p>
       <p class="lede">
-        The two experiments below came out of that. They are personal learning projects, not
+        The experiments below came out of that. They are personal learning projects, not
         products, and they are live if you want to look around.
       </p>
 
